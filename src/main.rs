@@ -19,7 +19,7 @@ impl Complex {
   }
 }
 
-impl Add<&Complex> for &Complex {
+impl Add for &Complex {
   type Output = Complex;
 
   fn add(self, other: &Complex) -> Complex {
@@ -30,7 +30,7 @@ impl Add<&Complex> for &Complex {
   }
 }
 
-impl Sub<&Complex> for &Complex {
+impl Sub for &Complex {
   type Output = Complex;
 
   fn sub(self, other: &Complex) -> Complex {
@@ -41,7 +41,7 @@ impl Sub<&Complex> for &Complex {
   }
 }
 
-impl Mul<&Complex> for &Complex {
+impl Mul for &Complex {
   type Output = Complex;
 
   fn mul(self, other: &Complex) -> Complex {
@@ -52,7 +52,7 @@ impl Mul<&Complex> for &Complex {
   }
 }
 
-impl Div<&Complex> for &Complex {
+impl Div for &Complex {
   type Output = Complex;
 
   fn div(self, other: &Complex) -> Complex {
