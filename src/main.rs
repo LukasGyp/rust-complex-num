@@ -1,6 +1,7 @@
 use std::ops::{Add, Sub, Mul, Div};
+use std::fmt;
 
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 struct Complex {
   re: f64,
   im: f64,
@@ -15,6 +16,18 @@ impl Complex {
     Complex {
       re: self.re,
       im: -self.im
+    }
+  }
+}
+
+impl fmt::Display for Complex {
+  fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+    if self.im == 0.0 {
+      write!(f, "{}", self.re)
+    } else if self.re == 0.0 {
+      write!(f, "{}i", self.im)
+    } else {
+      write!(f, "{}{:+}i", self.re, self.im)
     }
   }
 }
@@ -67,10 +80,10 @@ fn main() {
   let x = Complex {re: 6., im:2.};
   let y = Complex {re: 3., im:1.};
 
-  println!("x+y: {:?}", x+y);
-  println!("x-y: {:?}", x-y);
-  println!("xy: {:?}", x*y);
-  println!("x/y: {:?}", x/y);
-  println!("|x|: {:?}", x.abs());
-  println!("conj(x): {:?}", x.conj());
+  println!("x+y: {}", x+y);
+  println!("x-y: {}", x-y);
+  println!("xy: {}", x*y);
+  println!("x/y: {}", x/y);
+  println!("|x|: {}", x.abs());
+  println!("conj(x): {}", x.conj());
 }
